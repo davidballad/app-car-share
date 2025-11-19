@@ -1,4 +1,4 @@
-# 🇪🇨 Ecuador Rideshare Platform
+# 🇪🇨 Rideshare Platform
 
 A complete rideshare platform designed specifically for Ecuador, featuring mobile apps, web interface, and admin dashboard.
 
