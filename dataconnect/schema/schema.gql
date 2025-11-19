@@ -1,0 +1,52 @@
+type User @table {
+  displayName: String!
+  email: String!
+  createdAt: Timestamp!
+  phoneNumber: String
+  profilePictureUrl: String
+  address: String
+}
+
+type Car @table {
+  owner: User!
+  make: String!
+  model: String!
+  year: Int!
+  licensePlate: String!
+  dailyRate: Float!
+  location: String!
+  createdAt: Timestamp!
+  description: String
+  photoUrls: [String]
+  fuelType: String
+  numberOfSeats: Int
+  transmissionType: String
+}
+
+type Availability @table {
+  car: Car!
+  startDate: Date!
+  endDate: Date!
+  createdAt: Timestamp!
+}
+
+type Reservation @table {
+  car: Car!
+  renter: User!
+  startDate: Date!
+  endDate: Date!
+  totalPrice: Float!
+  status: String!
+  createdAt: Timestamp!
+  ownerNotes: String
+  renterNotes: String
+}
+
+type Review @table {
+  car: Car!
+  renter: User!
+  reservation: Reservation!
+  rating: Int!
+  createdAt: Timestamp!
+  comment: String
+}

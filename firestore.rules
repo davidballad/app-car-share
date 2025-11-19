@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && 
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Users collection
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update: if isOwner(userId) || isAdmin();
+      allow delete: if isAdmin();
+    }
+    
+    // Trips collection
+    match /trips/{tripId} {
+      allow read: if true; // Anyone can search trips
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated() && 
+                      (resource.data.driverId == request.auth.uid || isAdmin());
+      allow delete: if isAuthenticated() && 
+                      (resource.data.driverId == request.auth.uid || isAdmin());
+    }
+    
+    // Bookings collection
+    match /bookings/{bookingId} {
+      allow read: if isAuthenticated() && 
+                    (resource.data.passengerId == request.auth.uid || 
+                     resource.data.driverId == request.auth.uid ||
+                     isAdmin());
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated() && 
+                      (resource.data.passengerId == request.auth.uid || 
+                       resource.data.driverId == request.auth.uid ||
+                       isAdmin());
+      allow delete: if isAdmin();
+    }
+    
+    // Verifications collection
+    match /verifications/{verificationId} {
+      allow read: if isAuthenticated() && 
+                    (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isAuthenticated();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+    
+    // Notifications collection
+    match /notifications/{notificationId} {
+      allow read: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+  }
+}

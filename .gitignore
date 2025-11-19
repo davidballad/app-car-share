@@ -1,0 +1,374 @@
+# ============================================
+# SECURITY - NEVER COMMIT THESE FILES
+# ============================================
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Firebase credentials
+firebase-adminsdk-*.json
+serviceAccountKey.json
+google-services.json
+GoogleService-Info.plist
+
+# API keys and secrets
+**/secrets/
+**/credentials/
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+
+# AWS credentials
+.aws/
+aws-credentials.json
+
+# Database credentials
+database.yml
+database.json
+
+# SSH keys
+id_rsa
+id_rsa.pub
+*.ppk
+
+# ============================================
+# DEPENDENCIES
+# ============================================
+
+# Node modules
+node_modules/
+*/node_modules/
+**/node_modules/
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnpm-store/
+
+# Bower
+bower_components/
+
+# ============================================
+# BUILD OUTPUTS
+# ============================================
+
+# Production builds
+dist/
+build/
+*/dist/
+*/build/
+**/dist/
+**/build/
+out/
+
+# TypeScript
+*.tsbuildinfo
+.tsbuildinfo
+
+# Webpack
+.webpack/
+
+# Next.js
+.next/
+next-env.d.ts
+
+# Expo
+.expo/
+.expo-shared/
+mobile/.expo/
+mobile/.expo-shared/
+
+# React Native
+android/app/build/
+ios/build/
+*.jsbundle
+
+# ============================================
+# LOGS AND DEBUGGING
+# ============================================
+
+# Log files
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# Debug files
+.vscode/launch.json
+chrome-debug/
+
+# ============================================
+# TESTING
+# ============================================
+
+# Test coverage
+coverage/
+*.lcov
+.nyc_output/
+test-results/
+junit.xml
+
+# Jest
+jest-coverage/
+
+# ============================================
+# OPERATING SYSTEM FILES
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# IDE AND EDITORS
+# ============================================
+
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*.swn
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================
+# MOBILE SPECIFIC
+# ============================================
+
+# React Native
+.expo/
+.expo-shared/
+*.jks
+*.p8
+*.p12
+*.mobileprovision
+*.orig.*
+web-build/
+
+# Android
+*.apk
+*.aab
+android/app/release/
+android/app/debug/
+android/.gradle/
+android/local.properties
+android/captures/
+android/app/google-services.json
+
+# iOS
+ios/Pods/
+ios/*.xcworkspace
+ios/*.xcuserdata
+ios/build/
+ios/DerivedData/
+ios/*.ipa
+ios/*.dSYM.zip
+ios/*.dSYM
+ios/GoogleService-Info.plist
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# ============================================
+# DATABASE
+# ============================================
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# PostgreSQL
+*.dump
+*.sql.gz
+
+# MongoDB
+*.bson
+
+# ============================================
+# TEMPORARY FILES
+# ============================================
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# ============================================
+# FIREBASE
+# ============================================
+
+# Firebase
+.firebase/
+.firebaserc
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+database-debug.log
+pubsub-debug.log
+firebase-export-*/
+
+# Firebase emulator data
+firebase-emulator-data/
+
+# ============================================
+# CLOUD SERVICES
+# ============================================
+
+# Vercel
+.vercel
+
+# Netlify
+.netlify
+
+# Heroku
+.heroku/
+
+# ============================================
+# PACKAGE MANAGERS
+# ============================================
+
+# npm
+.npm
+.npmrc
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# ============================================
+# MISC
+# ============================================
+
+# Sentry
+.sentryclirc
+
+# Storybook
+storybook-static/
+
+# Documentation builds
+docs/_build/
+
+# Python (if using any Python scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+
+# Certificates
+*.crt
+*.cer
+*.der
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Large media files (optional - uncomment if needed)
+# *.mp4
+# *.mov
+# *.avi
+# *.mkv
+# *.pdf
+# *.psd
+
+# ============================================
+# PROJECT SPECIFIC
+# ============================================
+
+# Backend specific
+backend/.env
+backend/dist/
+backend/uploads/
+
+# Web specific
+web/.env
+web/build/
+
+# Admin specific
+admin/.env
+admin/build/
+
+# Mobile specific
+mobile/.env
+mobile/android/app/google-services.json
+mobile/ios/GoogleService-Info.plist
+
+# Shared
+shared/dist/
